@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import { environmentConfig } from '../environment.config';
 
 const PostCustomer = ()=>{
     const [AllCustomers,setCustomers] = useState([]);
@@ -13,7 +14,7 @@ const PostCustomer = ()=>{
 
     const DeleteCustomer = async(customer_id)=>{
       try {
-        const query =  fetch(`http://localhost:5000/customer/${customer_id}`,{
+        const query =  fetch(`${environmentConfig.apiEndPoint}/customer/${customer_id}`,{
           method : 'DELETE'
         });
         console.log(query);
@@ -25,7 +26,7 @@ const PostCustomer = ()=>{
     const PostCustomer = async()=> {
       try {
         const body = {name,phone,email,house_no,city,zipcode,username,password};
-        const query = fetch('http://localhost:5000/customer',{
+        const query = fetch(`${environmentConfig.apiEndPoint}/customer`,{
           method : 'POST',
           headers : {'Content-Type' : 'application/json'},
           body : JSON.stringify(body)
@@ -37,7 +38,7 @@ const PostCustomer = ()=>{
     };
     const GetCustomers = async()=> {
       try {
-        const get_cust = await fetch('http://localhost:5000/customer');
+        const get_cust = await fetch(`${environmentConfig.apiEndPoint}/customer`);
         const data =await get_cust.json();
         setCustomers(data);
         console.log(data);

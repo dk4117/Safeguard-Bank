@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import avatar from '../images/avatar.png';
-
+import { environmentConfig } from '../environment.config';
 
 const CustomerControl = ()=>{
     const [id,setID] = useState('');
@@ -16,7 +16,8 @@ const CustomerControl = ()=>{
     const [Alltransaction,SetTransaction] = useState([]);
     const DeleteAccount = async(account_id)=>{
       try {
-        const query = await fetch(`http://localhost:5000/accounts/${account_id}`,{
+        //const query = await fetch(`http://localhost:5000/accounts/${account_id}`,{
+          const query = await fetch(`${environmentConfig.apiEndPoint}/accounts/${account_id}`,{
           method : 'DELETE'
         });
         console.log(query);
@@ -28,7 +29,7 @@ const CustomerControl = ()=>{
     const AddAccount = async()=>{
       const customer_id = document.getElementById('customer_id_value').value;
       const body = {customer_id,current_balance};
-      const query = await fetch('http://localhost:5000/accounts',{
+      const query = await fetch(`${environmentConfig.apiEndPoint}/accounts`,{
         method : 'POST',
         headers : {'Content-Type' : 'application/json'},
         body : JSON.stringify(body)
@@ -39,7 +40,7 @@ const CustomerControl = ()=>{
     };
     const GetAccountDetails = async()=>{
       try {
-        const query = await fetch(`http://localhost:5000/accounts/${id}`);
+        const query = await fetch(`${environmentConfig.apiEndPoint}/accounts/${id}`);
         const data = await query.json();
         setAccounts(data);
         console.log(data);
@@ -50,7 +51,7 @@ const CustomerControl = ()=>{
     const GetTransactions = async()=>{
       try {
         const customer_id = document.getElementById('customer_id_value').value;
-        const query = await fetch(`http://localhost:5000/transaction/${customer_id}`);
+        const query = await fetch(`${environmentConfig.apiEndPoint}/transaction/${customer_id}`);
         const data = await query.json();
         SetTransaction(data);
         console.log(data);
@@ -65,7 +66,7 @@ const CustomerControl = ()=>{
             console.log(parameters);
             console.log(temp);
             const username = temp[1];
-            const query = await fetch(`http://localhost:5000/customer/${username}`);
+            const query = await fetch(`${environmentConfig.apiEndPoint}/customer/${username}`);
             const data = await query.json();
             console.log(data);
             setID(data['customer_id']);
@@ -192,7 +193,7 @@ const CustomerControl = ()=>{
   
 
 {MyAccounts.map(account => (
-<form action='http://localhost:3000/customer/transaction' method='GET'>
+<form action='/customer/transaction' method='GET'>
 <div className="card shadow-lg p-3 mb-5 bg-white rounded collapse" id="AccountDetails" key = {account.account_id}>
 
 <hr className='mt-5'></hr>

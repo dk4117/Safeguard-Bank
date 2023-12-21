@@ -8,7 +8,7 @@ const CustomerLogin = ()=>{
 <h1 className="mt-5 mb-5" style={{textAlign : "center"}}>Customer Login</h1>
 <div className="border container p-0 shadow-lg p-3 mb-5 bg-white rounded "  style={{display: 'flex',  justifyContent:'center'}}>
     <img src={customer} alt="customer missing" className="rounded mx-auto d-block ml-10 mr-10 flex-left p-5" height="400px"></img>
-    <form className='container flex-right p-5 ' style={{alignSelf : "right"}} action='http://localhost:3000/customer' >
+    <form className='container flex-right p-5 ' style={{alignSelf : "right"}} action='/customer' >
 
   <div className="form-group">
     <label className="mt-4">Username</label>

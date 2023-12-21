@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import { environmentConfig } from '../environment.config';
 
 const PostBranch = ()=>{
     const [AllBranch,setBranch] = useState([]);
@@ -8,7 +9,7 @@ const PostBranch = ()=>{
     const [zip_code,setZipCode] = useState('');
     const DeleteBranch = async(branch_id) =>{
         try {
-          const query = fetch(`http://localhost:5000/branch/${branch_id}`,{
+          const query = fetch(`${environmentConfig.apiEndPoint}/branch/${branch_id}`,{
               method : 'DELETE'
           });
           console.log(query);
@@ -21,7 +22,7 @@ const PostBranch = ()=>{
     const PostBranch = async()=> {
       try {
         const body = {name,house_no,city,zip_code};
-        const query = fetch('http://localhost:5000/branch',{
+        const query = fetch(`${environmentConfig.apiEndPoint}/branch`,{
           method : 'POST',
           headers : {'Content-Type' : 'application/json'},
           body : JSON.stringify(body)
@@ -33,7 +34,7 @@ const PostBranch = ()=>{
     };
     const GetBranches = async()=> {
       try {
-        const query = await fetch('http://localhost:5000/branch');
+        const query = await fetch(`${environmentConfig.apiEndPoint}/branch`);
         const data =await query.json();
         setBranch(data);
         console.log(data);

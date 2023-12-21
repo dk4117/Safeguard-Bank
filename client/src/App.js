@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import LoginPage from './components/LoginPage.js';
 import CustomerLogin from './components/CustomerLogin.js';
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import {BrowserRouter as Router,Switch,Route,Redirect} from 'react-router-dom';
 import EmployeeLogin from './components/EmployeeLogin';
 import EmployeeControl from './components/EmployeeControl';
 import PostEmployee from './components/AdminEmployee';
@@ -24,6 +24,7 @@ function App() {
         <Route path='/admin/branch' exact component = {PostBranch} />
         <Route path='/customer' exact component= {CustomerControl}/>
         <Route path='/customer/transaction' exact component= {Transaction}/>
+        <Redirect to='/' />
       </Switch>
     </Router>
   );

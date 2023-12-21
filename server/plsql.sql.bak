@@ -1,0 +1,53 @@
+
+---------PROCEDURE--------
+
+-------
+CREATE or REPLACE PROCEDURE insert_into_emp_login(un in varchar, up in varchar)
+LANGUAGE SQL AS
+$$
+insert into EMP_LOGIN(username,user_password) values(un,up);
+$$;
+---------
+CREATE or REPLACE PROCEDURE insert_into_customer(nm in varchar(50), ph in varchar(50), em in varchar(50), hn in varchar(50),city in varchar(50), zp in varchar(50),un in varchar(50),pwd in varchar(50)) 
+LANGUAGE SQL AS
+$$
+INSERT INTO CUSTOMER 
+(customer_id,name,phone,email,house_no,city,zipcode,username,password)
+VALUES
+(NEXTVAL('c_id_sequence'),nm,ph,em,hn,city,zp,un,pwd);
+$$;
+----------
+CREATE or replace PROCEDURE insert_into_accounts(cid in varchar(50),cur_bal in varchar(50))
+LANGUAGE SQL AS
+$$
+INSERT INTO ACCOUNTS 
+(account_id, customer_id, date_opened,current_balance)
+VALUES
+(NEXTVAL('a_id_sequence'), cast(cid as integer),CURRENT_DATE,cast(cur_bal as float(20)));
+$$;
+--------
+CREATE or REPLACE PROCEDURE insert_into_branch(nm in varchar(50),hn in varchar(50),cy in varchar(50),zc in varchar(50))
+LANGUAGE SQL AS
+$$
+INSERT INTO BRANCH VALUES (NEXTVAL('b_id_sequence'),nm,hn,cy,zc);
+$$;
+--------------
+
+CREATE OR REPLACE PROCEDURE insert_into_transaction(aid in varchar(50),bid in varchar(50),amt in varchar(50),acn in varchar(50))
+LANGUAGE SQL AS 	
+$$
+INSERT INTO TRANSACTION VALUES (NEXTVAL('t_id_sequence'),cast(aid as integer),cast(bid as integer),CURRENT_DATE, cast(amt as float(20)),acn);
+UPDATE accounts
+SET current_balance=current_balance+cast(amt as float)
+WHERE account_id = cast(aid as integer);
+$$;
+----------
+
+
+
+
+
+
+
+
+
