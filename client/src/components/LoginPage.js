@@ -1,13 +1,25 @@
 import React from 'react';
 import customer from '../images/customer.png';
 import employee from '../images/employee.png';
+import logo from '../images/logo.png';
+
+
 import {useHistory} from 'react-router-dom';
 const LoginPage = ()=>{
     const history = useHistory();
 
     return(
-<div className="container p-5 mt-4"  style={{  justifyContent:'center', alignItems:'center', height: '100vh' ,textAlign : 'center', backgroundColor : '#edf2f4'}}>
-<h1 style={{textAlign : "center"}}>Welcome to Safeguard Bank!</h1>
+
+<div className="container p-5 mt-4"  style={{  justifyContent:'center', alignItems:'center', height: '100vh' ,textAlign : 'left', backgroundColor : '#edf2f4'}}>
+
+<div className="logo"  style={{  justifyContent:'right', alignItems:'left'}}>
+  <img src={logo} alt="logo not found" height="130px" width="350px" className="banklogo" style={{paddingBottom: "20px", marginTop:"0px"}} />
+  <h1 style={{textAlign : "right", float: "inline-end", marginTop:"40px"}}>  Welcome to Safeguard Bank</h1>
+</div>
+
+
+
+
 <table className="table">
   <tbody>
     <tr>
