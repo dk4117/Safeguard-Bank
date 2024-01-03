@@ -57,23 +57,31 @@ $$;
 
 ----1-----
 
-create or replace function get_current_amount(a_id number) return number AS
-
-current_amount NUMBER;
+create or replace function get_current_amount(a_id int) 
+returns int
+language plpgsql
+as
+$$
+Declare
+current_amount int;
 BEGIN
 	
 	select current_balance into current_amount  from accounts where account_id=a_id;
 	
 	return current_amount;
 END;
-
+$$;
 
 
 ----2------
 
-create or replace function get_transaction(a_id number) return SYS_REFCURSOR AS
-
-my_cursor SYS_REFCURSOR;
+create or replace function get_transaction(a_id int) 
+returns refcursor 
+language plpgsql
+AS
+$$
+Declare
+my_cursor refcursor;
 BEGIN
 	
 	open my_cursor for  select TRANSACTION_ID,BRANCH_ID,DATE_OF_TRANSACTION,AMOUNT,ACTION from TRANSACTION 
@@ -81,12 +89,19 @@ BEGIN
 	return my_cursor;
 
 END;
+$$;
+
 
 ----3----
 
-create or replace function e_login(f_name VARCHAR2, f_password VARCHAR2) return SYS_REFCURSOR AS
 
-my_cursor SYS_REFCURSOR;
+create or replace function e_login(f_name VARCHAR, f_password VARCHAR)
+returns refcursor
+language plpgsql
+AS
+$$
+Declare
+my_cursor refcursor;
 BEGIN
 	
 	open my_cursor for  select USERNAME,U_PASSWORD from EMP_LOGIN 
@@ -95,13 +110,18 @@ BEGIN
 	return my_cursor;
 
 END;
-
+$$;
 
 -----4-----
 
-create or replace function customer_info(a_id NUMBER) return SYS_REFCURSOR AS
+create or replace function customer_info(a_id int)
+returns refcursor
+language plpgsql
 
-my_cursor SYS_REFCURSOR;
+AS
+$$
+Declare
+my_cursor refcursor;
 BEGIN
 	
 	open my_cursor for  select name,PHONE from ACCOUNTS ac
@@ -110,7 +130,7 @@ BEGIN
 	return my_cursor;
 
 END;
-
+$$;
 
 
 

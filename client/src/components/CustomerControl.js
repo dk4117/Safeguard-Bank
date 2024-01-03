@@ -16,7 +16,7 @@ const CustomerControl = ()=>{
     const [Alltransaction,SetTransaction] = useState([]);
     const DeleteAccount = async(account_id)=>{
       try {
-        //const query = await fetch(`http://localhost:5000/accounts/${account_id}`,{
+        
           const query = await fetch(`${environmentConfig.apiEndPoint}/accounts/${account_id}`,{
           method : 'DELETE'
         });
@@ -35,8 +35,7 @@ const CustomerControl = ()=>{
         body : JSON.stringify(body)
       });
       window.location.reload();
-
-      console.log(query);
+      console.log(query); 
     };
     const GetAccountDetails = async()=>{
       try {

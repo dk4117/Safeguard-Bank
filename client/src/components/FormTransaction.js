@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { environmentConfig } from '../environment.config';
 
 const FormTransaction = ()=>{
     const [account_id,SetAccid] = useState('');
@@ -18,7 +19,7 @@ const FormTransaction = ()=>{
         const action = document.getElementById('inputState').value;
         try {
             const body = {account_id,branch_id,amount,action};
-            const query = fetch ('http://localhost:5000/transaction',{
+            const query = fetch (`${environmentConfig.apiEndPoint}/transaction`,{
                 method : 'POST',
                 headers : {'Content-Type':'application/json'},
                 body : JSON.stringify(body)
