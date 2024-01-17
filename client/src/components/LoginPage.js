@@ -1,7 +1,7 @@
 import React from 'react';
 import customer from '../images/customer.png';
 import employee from '../images/employee.png';
-import logo from '../images/logo.png';
+
 
 
 import {useHistory} from 'react-router-dom';
@@ -12,9 +12,9 @@ const LoginPage = ()=>{
 
 <div className="container p-5 mt-4"  style={{  justifyContent:'center', alignItems:'center', height: '100vh' ,textAlign : 'left', backgroundColor : '#edf2f4'}}>
 
-<div className="logo"  style={{  justifyContent:'right', alignItems:'left'}}>
-  <img src={logo} alt="logo not found" height="130px" width="350px" className="banklogo" style={{paddingBottom: "20px", marginTop:"0px"}} />
-  <h1 style={{textAlign : "right", float: "inline-end", marginTop:"40px"}}>  Welcome to Safeguard Bank</h1>
+<div className="logo"  style={{  justifyContent:'left', alignItems:'left'}}>
+
+  <h1 style={{ float: "inline"}}>  Welcome to Safeguard Bank</h1>
 </div>
 
 

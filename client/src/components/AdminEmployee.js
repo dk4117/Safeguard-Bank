@@ -1,4 +1,5 @@
 import React,{useState ,useEffect} from 'react';
+import { environmentConfig } from '../environment.config';
 
 const PostEmployee = ()=>{
   const [AllEmployee, setEmployees] = useState([]);
@@ -6,7 +7,7 @@ const PostEmployee = ()=>{
   const [user_password,setPassword] = useState('');
   const DeleteEmp= async (username) => {
     try {
-        const delete_emp = await fetch(`http://localhost:5000/employee/${username}`,{
+        const delete_emp = await fetch(`${environmentConfig.apiEndPoint}/employee/${username}`,{
             method : "DELETE"
         });
         console.log(delete_emp);
@@ -18,7 +19,7 @@ const PostEmployee = ()=>{
   const AddEmployee = async()=> {
     try {
       const body = {username,user_password};
-      const query = fetch('http://localhost:5000/employee',{
+      const query = fetch(`${environmentConfig.apiEndPoint}/employee`,{
         method : 'POST',
         headers : {'Content-Type' : 'application/json'},
         body : JSON.stringify(body)
@@ -30,7 +31,7 @@ const PostEmployee = ()=>{
   };
   const GetEmployees = async()=> {
     try {
-      const query = await fetch('http://localhost:5000/employee');
+      const query = await fetch(`${environmentConfig.apiEndPoint}/employee`);
       const data =await query.json();
       setEmployees(data);
       console.log(data);

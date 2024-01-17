@@ -62,12 +62,12 @@ const CustomerControl = ()=>{
         try {
             const parameters = window.location.search.substring(1).split("&");
             const temp = parameters[0].split("=");
-            console.log(parameters);
-            console.log(temp);
+            console.log("parameters "+parameters);
+            console.log("temp "+temp);
             const username = temp[1];
             const query = await fetch(`${environmentConfig.apiEndPoint}/customer/${username}`);
             const data = await query.json();
-            console.log(data);
+            console.log("data "+data);
             setID(data['customer_id']);
             setName(data['name']);
             setPhone(data['phone']);
@@ -89,10 +89,10 @@ const CustomerControl = ()=>{
     return (
 <div>
     <div className='border p-5' style={{backgroundColor : '#006d77'}}>
-    <h1 className='mt-5' style={{textAlign : 'center', color : '#e5e5e5'}}>Customer Details</h1>
+    <h1 className='mt-5' style={{textAlign : 'center', color : '#e5e5e5'}}> Safeguard Bank</h1>
     <hr style={{color : '#FFFFFF'}}></hr>
     <img src={avatar} alt='missing avatar' className='rounded mx-auto d-block'></img>
-    <h3 className='mt-5' style={{textAlign : 'center', color : '#e5e5e5'}}>username@{username}</h3>
+    <h3 className='mt-5' style={{textAlign : 'center', color : '#e5e5e5'}}>Welcome {username}</h3>
     </div>
 <div className='container border mt-5 p-5' >
 <h2>Personal Details</h2>

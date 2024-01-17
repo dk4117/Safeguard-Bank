@@ -10,12 +10,21 @@ import PostCustomer from './components/AdminCustomer';
 import CustomerControl from './components/CustomerControl';
 import PostBranch from './components/AdminBranch';
 import Transaction from './components/Transaction';
+import Home from './components/Home.js';
+import Navbar from './components/Navbar.js';
+import Services from './components/Services.js';
+import About from './components/About.js';
+import Contact from './components/Contact.js';
+
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Switch>
-        <Route path='/' exact component={LoginPage}/>
+        <Route path='/' exact component={Home}/>
+        <Route path='/home' exact component={Home}/>
+        <Route path='/login' exact component = {LoginPage} />
         <Route path='/customer/login' exact component = {CustomerLogin} />
         <Route path='/employee/login' exact component = {EmployeeLogin} />
         <Route path='/employee' exact component = {EmployeeControl} />
@@ -24,7 +33,11 @@ function App() {
         <Route path='/admin/branch' exact component = {PostBranch} />
         <Route path='/customer' exact component= {CustomerControl}/>
         <Route path='/customer/transaction' exact component= {Transaction}/>
-        <Redirect to='/' />
+        <Route path='/services' exact component= {Services}/>
+        <Route path='/about' exact component= {About}/>
+        <Route path='/contact' exact component= {Contact}/>
+        <Redirect to='/' /> 
+        
       </Switch>
     </Router>
   );

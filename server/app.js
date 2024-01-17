@@ -180,6 +180,13 @@ app.get('/customer/:username',async(req,res)=>{
     }
 });
 
-
-
+app.get('/employee/:username',async(req,res)=>{
+    try {
+        const username = req.params.username;
+        const query = await pool.query('select * from EMP_LOGIN where username=$1',[username]);
+        res.json(query.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+    }
+});
 
