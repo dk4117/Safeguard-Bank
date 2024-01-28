@@ -10,11 +10,16 @@ import PostCustomer from './components/AdminCustomer';
 import CustomerControl from './components/CustomerControl';
 import PostBranch from './components/AdminBranch';
 import Transaction from './components/Transaction';
-import Home from './components/Home.js';
-import Navbar from './components/Navbar.js';
+import Home from './components/HomePage.js';
 import Services from './components/Services.js';
 import About from './components/About.js';
 import Contact from './components/Contact.js';
+import PersoanlLoan from './components/PersonalLoan.js';
+import BikeLoan from './components/BikeLoan.js';
+import CarLoan from './components/CarLoan.js';
+import HomeLoan from './components/HomeLoan.js';
+import Emicalculator from './components/Emicalculator.js';
+import Navbar from './components/Navbar.js';
 
 
 function App() {
@@ -36,6 +41,12 @@ function App() {
         <Route path='/services' exact component= {Services}/>
         <Route path='/about' exact component= {About}/>
         <Route path='/contact' exact component= {Contact}/>
+        <Route path='/services/personalloan' exact component= {PersoanlLoan}/>
+        <Route path='/services/bikeloan' exact component= {BikeLoan}/>
+        <Route path='/services/carloan' exact component= {CarLoan}/>
+        <Route path='/services/homeloan' exact component= {HomeLoan}/>
+        <Route path='/services/personalloan/emicalculator' exact component= {Emicalculator}/>
+
         <Redirect to='/' /> 
         
       </Switch>

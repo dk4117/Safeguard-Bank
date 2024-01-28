@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+.carLoanPromo, .carLoanCalculate{
+width: 50%;
+min-height: 600px;
+float: left;
+padding: 50px;
+
+}
+
+.carLoanPromo p{
+  text-align: justify;
+}

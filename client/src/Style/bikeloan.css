@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+.bikeLoanPromo, .bikeLoanCalculate{
+width: 50%;
+min-height: 600px;
+float: left;
+padding: 50px;
+
+}
+
+.bikeLoanPromo p{
+  text-align: justify;
+}

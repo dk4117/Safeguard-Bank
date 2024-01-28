@@ -1,10 +1,9 @@
 import React from 'react';
 import customer from '../images/customer.png';
 import employee from '../images/employee.png';
-
-
-
 import {useHistory} from 'react-router-dom';
+
+
 const LoginPage = ()=>{
     const history = useHistory();
 

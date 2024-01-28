@@ -1,14 +1,11 @@
 import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 const ImageSlider = ({slides}) => {
    
     const [currentIndex, setcurrentIndex] = useState(0);
-    const sliderStyles = {
-        height:"100%",
-        position:"relative",
-    };
+   
 
     const slideStyles = {
         width:"100%",
@@ -67,6 +64,17 @@ const ImageSlider = ({slides}) => {
     const goToSlide = (slideIndex) => {
         setcurrentIndex(slideIndex);
     };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const isLastSlide = currentIndex === slides.length -1;
+            const newIndex = isLastSlide ? 0 : currentIndex + 1;
+            setcurrentIndex(newIndex);
+        }, 4000);
+ 
+        //Clearing the interval
+        return () => clearInterval(interval);
+    }, [currentIndex]);
 
     return (
         <div style={slideStyles}> 

@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+  
+  }
+
+.titleContainer{
+  padding-top: 20px;  
+}
+
+.promoContainer{
+width: 50%;
+float: left;
+padding-top: 20px;
+margin-top: 25px;
+
+}
+
+.textContainer{
+  width: 50%;
+  float: left;
+  padding-top: 20px; 
+  margin-top: 25px;
+  
+  }
+
+.textContainer li{
+  text-align: justify;
+  padding-left: 10px;
+  line-height: 50px;
+  font-size: 26px;
+}
+
+.textContainer li:hover{
+  font-weight: 700;
+}
+
+.promoContainer img{
+  width: 450px;
+  height: 300px;
+  border: 10px solid black;
+  transform: rotate(-5deg);
+  border-radius: 3%;
+  margin: 5px;
+}
+
+
+
+.applyNowBtn, .emiCalculator{
+  padding:5px, 15px;
+  margin-left: 50px;
+  width: 150px;
+}
+
+.applyNowBtn:hover, .emiCalculator:hover{
+  background-color: #4a7023;
+  
+}
+
+.benefitsAndFeatures, .benefitsAndFeatures-content{
+  float: left;
+}
+
+.benefitsAndFeatures-title{
+  margin: 80px 0px;
+  float: left;
+  padding-left: 25%;
+}
+
+.solution-card__inner{
+  width: 20%;
+  float: left;
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 5px;
+  min-height: 300px;
+  background-color:#afc797;
+}
+
+.solution-card__inner:hover{
+  width: 20%;
+  float: left;
+  padding-top: 15px;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 5px;
+  min-height: 300px;
+  background-color:#aacc88;
+  cursor: pointer;
+}
+
+.promo1{
+  margin-left: 8%;
+}
+.promo1:hover{
+  margin-left: 8%;
+}

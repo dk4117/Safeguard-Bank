@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .contactUsTitle{
+    margin-top: 50px;
+    font-size: 40px;
+  }
+
+  .byPhone, .startNewCase, .liveChat{
+    width: 33%;
+    min-height: 600px;
+    float: left;
+    padding: 50px;
+    
+    }
+    
+    .starHereBtn, .startChatBtn{
+        background-color: white;
+        padding: 2px 8px;
+    }

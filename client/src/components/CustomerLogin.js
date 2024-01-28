@@ -34,8 +34,10 @@ const CustomerLogin = ()=>{
       if(data.username === userName)
       {
         if(data.password === password){
+          sessionStorage.setItem("isLoggedIn", "yes");
           console.log("login successfull");
           history.push("/customer?username="+userName);
+          window.location.reload();
         }else {
           setErrMsg('incorrect password');
       }

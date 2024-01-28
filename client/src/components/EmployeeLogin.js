@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 import { environmentConfig } from '../environment.config';
 const EmployeeLogin = ()=>{
   
-  const userRef = useRef();
+ 
   const errRef = useRef();
   const history = useHistory();
   const [user, setUser] = useState('');

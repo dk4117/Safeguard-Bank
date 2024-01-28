@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+    
+  }
+
+
+.personal-loan , .bike-loan, .car-loan, .home-loan{
+    width :23.5%;
+    height: 300px;
+    float: left;  
+    padding: 5px 1px;
+    border: 1px solid black;
+    margin: 10px 10px;
+}
+
+.personal-loan , .bike-loan, .car-loan, .home-loan{
+    width :23.5%;
+    height: 300px;
+    float: left;  
+    padding: 5px 1px;
+    border: 1px solid black;
+    margin: 10px 10px;
+}
+
+.personal-loan:hover , .bike-loan:hover, .car-loan:hover, .home-loan:hover{
+    height: 310px;
+    padding: 0px 0px;
+    border: 1px solid black;
+   cursor: pointer;
+}
